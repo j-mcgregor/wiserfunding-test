@@ -1,47 +1,16 @@
-# .github/workflows/release-drafter.yml:
-name: Release
+name: Release Drafter
 
 on:
-  pull_request:
-    # run when you make a pull request onto the following branches
+  push:
+    # branches to consider in the event; optional, defaults to all
     branches:
-      - staging
-    types: [closed]
-    inputs:
-      bump:
-        description: "bump type, major or minor or patch or empty string"
-        default: ""
-      dry_run:
-        description: "dry run, true or false"
-        default: "false"
-      draft:
-        description: "draft, true or false"
-        default: "false"
-      pre_release:
-        description: "pre release, true or false"
-        default: "false"
+      - main
 
 jobs:
-  release:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 14
-      - uses: MeilCli/bump-release-action@v1
-        with:
-          config_path: "./bump.yml"
-          bump: ${{ github.event.inputs.bump }}
-          dry_run: ${{ github.event.inputs.dry_run }}
-          draft: ${{ github.event.inputs.draft }}
-          pre_release: ${{ github.event.inputs.pre_release }}
-
   update_release_draft:
     runs-on: ubuntu-latest
     steps:
-      - uses: release-drafter/release-drafter@v5
+      # Drafts your next Release notes as Pull Requests are merged into "master"
+      - uses: release-drafter/release-drafter@v5.15.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

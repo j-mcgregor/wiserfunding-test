@@ -1,0 +1,99 @@
+# .github/bump.yml
+release:
+  title-prefix: 'v.'
+  initial-version: '0.1.0'
+  tag-prefix: 'v.'
+  commit-note-replacers:
+    - replace-prefix: 'breaking: '
+      new-prefix: ''
+    - replace-prefix: 'feature: '
+      new-prefix: ''
+    - replace-prefix: 'change: '
+      new-prefix: ''
+    - replace-prefix: 'fix: '
+      new-prefix: ''
+    - replace-prefix: 'document: '
+      new-prefix: ''
+    - replace-prefix: 'dependency: '
+      new-prefix: ''
+branch:
+  version-branch-prefix: 'v.'
+  bump-version-commit-prefix: 'v.'
+  base-branch: 'main-draft'
+categories:
+  - title: 'breaking'
+    labels:
+      - 'BREAKING'
+    commits:
+      - 'breaking:'
+
+  - title: 'test'
+    labels:
+      - 'TEST'
+    commits:
+      - 'test:'
+
+  - title: 'feat'
+    labels:
+      - 'FEATURE'
+    commits:
+      - 'feat:'
+
+  - title: 'fix'
+    labels:
+      - 'BUGFIX'
+    commits:
+      - 'fix:'
+
+  - title: 'chore'
+    labels:
+      - 'CHORE'
+    commits:
+      - 'chore:'
+
+  - title: 'docs'
+    labels:
+      - 'DOCUMENTATION'
+    commits:
+      - 'docs:'
+
+  - title: 'refactor'
+    labels:
+      - 'REFACTOR'
+    commits:
+      - 'refactor:'
+
+  - title: 'style'
+    labels:
+      - 'STYLE'
+    commits:
+      - 'style:'
+
+  - title: 'ci'
+    labels:
+      - 'CICD'
+    commits:
+      - 'ci:'
+
+  - title: 'perf'
+    labels:
+      - 'PERFORMANCE'
+    commits:
+      - 'perf:'
+bump:
+  default: 'patch'
+  major:
+    labels:
+      - 'BREAKING'
+    commits:
+      - 'breaking:'
+  minor:
+    labels:
+      - 'PERFORMANCE'
+      - 'FEATURE'
+    commits:
+      - 'perf:'
+      - 'feat:'
+files:
+  - file-path: 'package.json'
+    line: 3

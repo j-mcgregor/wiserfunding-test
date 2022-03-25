@@ -3,8 +3,9 @@ name: Release
 
 on:
   pull_request:
+    # run when you make a pull request onto the following branches
     branches:
-      - "releases/**"
+      - main
     types: [closed]
     inputs:
       bump:

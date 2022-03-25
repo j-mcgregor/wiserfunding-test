@@ -2,7 +2,8 @@ name: Main
 
 on:
   pull_request:
-    branches: [main, staging, release-*]
+    # run when you make a pull request onto the following branches
+    branches: [main, staging]
 
 jobs:
   build_and_test:

@@ -1,17 +1,26 @@
-name: Release Drafter
-
+name: Release
 on:
   pull_request:
-    # branches to consider in the event; optional, defaults to all
     branches:
       - staging
-    types: [opened]
-
+    types: [closed]
 jobs:
-  update_release_draft:
+  release:
+    name: Release
     runs-on: ubuntu-latest
     steps:
-      # Drafts your next Release notes as Pull Requests are merged into "master"
-      - uses: release-drafter/release-drafter@v5.15.0
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "lts/*"
+      - name: Install dependencies
+        run: yarn
+      - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release

@@ -1,9 +1,8 @@
 name: Release
 on:
-  pull_request:
+  push:
     branches:
-      - staging
-    types: [closed]
+      - main
 jobs:
   release:
     name: Release

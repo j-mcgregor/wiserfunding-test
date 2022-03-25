@@ -1,10 +1,11 @@
 name: Release Drafter
 
 on:
-  push:
+  pull_request:
     # branches to consider in the event; optional, defaults to all
     branches:
       - staging
+    types: [closed]
 
 jobs:
   update_release_draft:

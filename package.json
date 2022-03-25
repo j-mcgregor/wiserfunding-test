@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "echo \"testing...\""
+    "test": "echo \"testing...\"",
+    "add-commit": "git add -A && git-cz",
+    "prepare": "husky install && next telemetry disable"
   },
   "dependencies": {
     "next": "12.1.0",
@@ -19,6 +21,13 @@
     "@types/react": "17.0.43",
     "eslint": "8.11.0",
     "eslint-config-next": "12.1.0",
+    "git-cz": "^4.8.0",
+    "husky": "^7.0.4",
     "typescript": "4.6.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "git-cz"
+    }
   }
 }

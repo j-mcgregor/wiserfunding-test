@@ -1,10 +1,9 @@
-name: Node.js CI
+name: Main
 
 on:
-  push:
-    branches: [main]
   pull_request:
-    branches: [main]
+    # run when you make a pull request onto the following branches
+    branches: [main, staging]
 
 jobs:
   build_and_test:

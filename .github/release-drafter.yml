@@ -33,7 +33,7 @@ jobs:
           node-version: 14
       - uses: MeilCli/bump-release-action@v1
         with:
-          config_path: ".github/bump.yml"
+          config_path: "./bump.yml"
           bump: ${{ github.event.inputs.bump }}
           dry_run: ${{ github.event.inputs.dry_run }}
           draft: ${{ github.event.inputs.draft }}

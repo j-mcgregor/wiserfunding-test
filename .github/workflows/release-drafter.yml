@@ -5,7 +5,7 @@ on:
   pull_request:
     # run when you make a pull request onto the following branches
     branches:
-      - main
+      - staging
     types: [closed]
     inputs:
       bump:
